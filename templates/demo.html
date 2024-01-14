@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+      body {
+          font-family: 'Times New Roman', serif;
+          background-color: black;
+      }
+      h3
+      {
+          font-size: 40px;
+          color: white;
+      }
+      .center
+      {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+      }
+      </style>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <h3 class="mt-5" align="center" fontsize="50%">Hand Sign Recognition</h3>
+                <img src="{{ url_for('video_feed') }}" width="50%" class="center">
+            </div>
+        </div>
+    </div>
+<!--    <div class="footer" style="text-align: center; color: white; margin-top: 20px;">-->
+<!--        <p>By S. Patrick Raja</p>-->
+<!--    </div>-->
+    </body>
+
+
+</html>

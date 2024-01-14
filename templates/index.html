@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Sign Recognition</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif; /* Changed the font style */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 1.2em; /* Increased font size */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hand Sign Recognition</h1> <!-- Moved topic to the top -->
+    {% if result %}
+        <p>Predicted Letter: {{ result }}</p> <!-- Added predicted letter -->
+    {% endif %}
+    <form method="post" action="/predict" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <label>Upload your image</label><br>
+        <input type="file" name="pic" id="fileInput"><br><br>
+        <input type="submit" value="Predict"><br><br>
+    </form>
+
+    <script>
+        function validateForm() {
+            var fileInput = document.getElementById("fileInput");
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload a file with a .jpg extension only.');
+                fileInput.value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
